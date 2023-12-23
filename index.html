@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Login and Registration</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class = "wrapper">
+        <span class ="bg-animate"></span>
+        <span class ="bg-animate2"></span>
+        <div class ="from-box login">
+            <h2 class ="animation" style ="--i:0;">Авторизация</h2>
+            <form action="#" id="login-form">
+                <div class = "input-box animation"
+                style ="--i:1;">
+                    <input type ="mail" required>
+                    <label>Почта</label>
+                    <i class='bx bxs-user'></i>
+                </div>
+                <div class = "input-box animation"
+                style ="--i:2;">
+                    <input type ="password" required>
+                    <label>Пароль</label>
+                    <i class='bx bxs-lock' ></i>
+                </div>
+                <button type="submit" class = "btn animation"
+                style ="--i:3;" onclick="goToEmptyPage()">Зайти
+                </button>
+                <div class = "logreg-link animation"
+                style ="--i:4;">
+                    <p>Не создавали аккаунт? <a href="#"
+                    class ="register-link">Зарегистрироваться</a></p>
+                </div>
+            </form>>
+        </div>
+        <div class="info-text login">
+            <h2 class ="animation" style ="--i:0;">Добро пожаловать!</h2>
+            <p class ="animation" style ="--i:1;">После проходения авторизации, Вам будет доступен 
+            функционал.</p>
+        </div>
+        <div class ="from-box register">
+            <h2 class ="animation" style ="--i:17;">Регистрация</h2>
+            <form action="#"  id="register-form">
+                <div class = "input-box animation"  style ="--i:18;">
+                    <input type ="name" required>
+                    <label>Имя</label>
+                    <i class='bx bxs-user'></i>
+                </div>
+                <div class = "input-box animation"  style ="--i:19;">
+                    <input type ="mail" required>
+                    <label>Почта</label>
+                    <i class='bx bxs-envelope' ></i>
+                </div>
+                <div class = "input-box animation"  style ="--i:20;">
+                    <input type ="password" required>
+                    <label>Пароль</label>
+                    <i class='bx bxs-lock' ></i>
+                </div>
+                <button type="submit" class = "btn animation"  style ="--i:21;">Зайти
+                </button>
+                <div class = "logreg-link animation"  style ="--i:22;">
+                    <p>Аккаунт уже был создан? <a href="#"
+                    class ="login-link">Авторизация</a></p>
+                </div>
+            </form>
+        </div>
+        <div class="info-text register">
+            <h2 class ="animation" >Добро пожаловать!</h2>
+            <p class ="animation" >После проходения регистрации, 
+            Вы можете воспользоваться 
+            фунционалом сайта.</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Отменить отправку формы
+
+            var email = document.querySelector('#login-form input[type="mail"]').value;
+            var password = document.querySelector('#login-form input[type="password"]').value;
+
+            // Теперь можно работать с введенными данными (email и password)
+            console.log('Email:', email);
+            console.log('Пароль:', password);
+      
+            window.location.href = "second-page.html"; // Замените "second-page.html" на URL вашей пустой страницы
+        
+
+            // Дополнительный код обработки введенных данных...
+        });
+        document.getElementById('register-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Отменить отправку формы
+            var name = document.querySelector('#register-form input[type="name"]').value;
+            var email = document.querySelector('#register-form input[type="mail"]').value;     
+            var password = document.querySelector('#register-form input[type="password"]').value;
+
+            // Теперь можно работать с введенными данными (email и password)
+            console.log('Имя:', name);
+            console.log('Email:', email);
+            console.log('Пароль:', password);
+            // Дополнительный код обработки введенных данных...
+            
+
+        });
+    </script>
+
+      
+</body>
+</html>

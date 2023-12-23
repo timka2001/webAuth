@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background: #081b29;
+            color: white;
+        }
+        table {
+            background-color: #081b29;
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 2px solid rgb(6, 239, 243);
+            padding: 8px;
+        }
+        th {
+            width: 300px; /* Настройте ширину заголовков колонок по вашему выбору */
+        }
+
+        td {
+            width: 200px; /* Настройте ширину ячеек колонок по вашему выбору */
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="card-body">
+            <table class="table table-bordered mt-3">
+                <thead>
+                    <tr>
+                        <th>Имя</th>
+                        <th>Почта</th>
+                        <th>Пароль</th>
+                    </tr>
+                </thead>
+                <tbody id="results">
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="index.js" ></script>
+    <script>
+        const results = document.getElementById('results');
+
+// Function to populate the table
+function populateTable(data) {
+  let html = '';
+  data.forEach(row => {
+    html += `
+      <tr>
+        <td>${row.name}</td>
+        <td>${row.mail}</td>
+        <td>${row.password}</td>
+      </tr>
+    `;
+  });
+  results.innerHTML = html;
+}
+
+// Make an AJAX request to the server to get the query results
+const xhr = new XMLHttpRequest();
+xhr.open('GET', 'http://localhost:3001/query'); // Replace with your server endpoint or URL
+xhr.onreadystatechange = function () {
+  if (xhr.readyState === XMLHttpRequest.DONE) {
+    if (xhr.status === 200) {
+      const data = JSON.parse(xhr.responseText);
+      populateTable(data);
+    } else {
+      console.error('Error:', xhr.status);
+    }
+  }
+};
+xhr.send();
+
+    </script>
+</body>
+</html>
